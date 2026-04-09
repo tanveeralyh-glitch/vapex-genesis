@@ -63,6 +63,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -71,6 +73,11 @@
 
   html {
     scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.3);
+    color: hsl(var(--foreground));
   }
 }
 
@@ -87,6 +94,16 @@
     border: 1px solid hsla(0, 0%, 100%, 0.12);
   }
 
+  .glass-card {
+    background: hsla(0, 0%, 100%, 0.04);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsla(0, 0%, 100%, 0.08);
+    box-shadow:
+      0 4px 24px -4px hsla(0, 0%, 0%, 0.4),
+      0 0 0 1px hsla(0, 0%, 100%, 0.04),
+      inset 0 1px 0 hsla(0, 0%, 100%, 0.06);
+  }
+
   .neon-glow {
     box-shadow: 0 0 15px hsla(var(--neon-blue) / 0.4),
                 0 0 45px hsla(var(--neon-blue) / 0.15);
@@ -95,6 +112,12 @@
   .neon-glow-purple {
     box-shadow: 0 0 15px hsla(var(--neon-purple) / 0.4),
                 0 0 45px hsla(var(--neon-purple) / 0.15);
+  }
+
+  .neon-glow-soft {
+    box-shadow: 0 0 20px hsla(var(--neon-blue) / 0.2),
+                0 0 60px hsla(var(--neon-blue) / 0.08),
+                0 8px 32px -8px hsla(0, 0%, 0%, 0.5);
   }
 
   .text-glow {
@@ -126,5 +149,27 @@
   .neon-border:focus-within {
     border-color: hsl(var(--neon-blue));
     box-shadow: 0 0 15px hsla(var(--neon-blue) / 0.3);
+  }
+
+  .premium-shadow {
+    box-shadow:
+      0 4px 6px -1px hsla(0, 0%, 0%, 0.3),
+      0 10px 30px -5px hsla(0, 0%, 0%, 0.4),
+      0 0 0 1px hsla(0, 0%, 100%, 0.05);
+  }
+
+  .section-divider {
+    position: relative;
+  }
+
+  .section-divider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--neon-blue) / 0.3), transparent);
   }
 }

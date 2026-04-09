@@ -10,11 +10,12 @@ const HeroSection = () => {
         <img
           src={heroSmoke}
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-105"
           width={1920}
           height={1080}
         />
         <div className="absolute inset-0 bg-background/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background" />
       </div>
 
       {/* Animated smoke particles */}
@@ -42,7 +43,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-sm font-heading tracking-[0.3em] uppercase text-primary mb-6 text-glow"
+          className="text-sm font-heading tracking-[0.4em] uppercase text-primary mb-8 text-glow"
         >
           Premium Vaping Experience
         </motion.p>
@@ -51,7 +52,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-tight mb-6 animate-float"
+          className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[1.1] mb-8 animate-float"
         >
           <span className="gradient-text">Feel the Future</span>
           <br />
@@ -62,7 +63,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-lg md:text-xl text-muted-foreground font-light mb-10 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-muted-foreground font-light mb-12 max-w-2xl mx-auto leading-relaxed"
         >
           Smooth. Powerful. Premium Experience.
         </motion.p>
@@ -72,14 +73,14 @@ const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <Button variant="neon" size="lg" className="text-base px-10 py-6" asChild>
+          <Button variant="neon" size="lg" className="text-base px-12 py-7 text-sm" asChild>
             <a href="#products">Explore Now</a>
           </Button>
         </motion.div>
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
@@ -34,42 +34,43 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section id="testimonials" className="py-24 md:py-32">
+    <section id="testimonials" className="py-28 md:py-36 section-divider">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-sm font-heading tracking-[0.3em] uppercase text-primary mb-4 text-glow">
+          <p className="text-xs font-heading tracking-[0.4em] uppercase text-primary mb-5 text-glow">
             Community
           </p>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold gradient-text">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold gradient-text">
             What They Say
           </h2>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto relative h-64">
+        <div className="max-w-2xl mx-auto relative h-72">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.5 }}
-              className="glass-strong rounded-2xl p-10 text-center absolute inset-0 flex flex-col justify-center"
+              initial={{ opacity: 0, y: 20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.98 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="glass-card rounded-2xl p-12 text-center absolute inset-0 flex flex-col justify-center"
             >
-              <div className="flex justify-center gap-1 mb-4">
+              <Quote className="w-8 h-8 text-primary/30 mx-auto mb-4" />
+              <div className="flex justify-center gap-1.5 mb-5">
                 {[...Array(testimonials[current].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                 ))}
               </div>
-              <p className="text-lg text-foreground italic mb-6 leading-relaxed">
+              <p className="text-lg text-foreground italic mb-6 leading-relaxed font-light">
                 "{testimonials[current].text}"
               </p>
-              <p className="text-sm font-heading tracking-wider text-primary">
+              <p className="text-sm font-heading tracking-[0.2em] text-primary">
                 — {testimonials[current].name}
               </p>
             </motion.div>
@@ -77,13 +78,13 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-3 mt-10">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                i === current ? "gradient-primary w-8 neon-glow" : "bg-muted"
+              className={`h-2.5 rounded-full transition-all duration-500 ${
+                i === current ? "gradient-primary w-10 neon-glow" : "bg-muted w-2.5 hover:bg-muted-foreground/30"
               }`}
             />
           ))}

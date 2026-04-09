@@ -27,48 +27,48 @@ const products = [
 
 const ProductsSection = () => {
   return (
-    <section id="products" className="py-24 md:py-32 relative">
+    <section id="products" className="py-28 md:py-36 relative section-divider">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <p className="text-sm font-heading tracking-[0.3em] uppercase text-primary mb-4 text-glow">
+          <p className="text-xs font-heading tracking-[0.4em] uppercase text-primary mb-5 text-glow">
             Our Collection
           </p>
-          <h2 className="text-4xl md:text-5xl font-heading font-bold gradient-text">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold gradient-text">
             Featured Products
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {products.map((product, i) => (
             <motion.div
               key={product.name}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              whileHover={{ scale: 1.03, y: -8 }}
-              className="glass rounded-2xl p-6 group cursor-pointer transition-shadow duration-500 hover:neon-glow"
+              whileHover={{ y: -10 }}
+              className="glass-card rounded-2xl p-7 group cursor-pointer transition-all duration-500 hover:neon-glow-soft"
             >
-              <div className="relative overflow-hidden rounded-xl bg-muted/30 mb-6 p-8 flex items-center justify-center h-64">
+              <div className="relative overflow-hidden rounded-xl bg-muted/20 mb-7 p-8 flex items-center justify-center h-64">
                 <img
                   src={product.image}
                   alt={product.name}
                   loading="lazy"
-                  className="h-full w-auto object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,240,255,0.15)]"
+                  className="h-full w-auto object-contain transition-transform duration-700 ease-out group-hover:scale-110 drop-shadow-[0_20px_40px_rgba(0,240,255,0.15)]"
                 />
               </div>
-              <h3 className="text-xl font-heading font-semibold text-foreground mb-2">
+              <h3 className="text-xl font-heading font-semibold text-foreground mb-2 tracking-wide">
                 {product.name}
               </h3>
-              <p className="text-xs font-heading tracking-widest text-primary mb-3">{product.specs}</p>
-              <p className="text-sm text-muted-foreground mb-5 leading-relaxed">{product.description}</p>
-              <Button variant="neon-outline" size="sm">
+              <p className="text-xs font-heading tracking-[0.2em] text-primary mb-3">{product.specs}</p>
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">{product.description}</p>
+              <Button variant="neon-outline" size="sm" className="transition-all duration-300 group-hover:neon-glow">
                 View Details
               </Button>
             </motion.div>

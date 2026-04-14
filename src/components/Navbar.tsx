@@ -34,8 +34,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <a href="#" className="font-heading text-2xl font-bold tracking-widest gradient-text hover:opacity-80 transition-opacity duration-300">
-          VAPEX
+        <a href="#" className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-300">
+          <img src={logo} alt="Vape Universe" className="h-10 w-auto" />
         </a>
 
         {/* Desktop */}
